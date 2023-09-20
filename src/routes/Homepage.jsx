@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import homeImage from '../assets/homepage.jpg'
 import Button from 'react-bootstrap/Button';
+import { Form } from 'react-router-dom';
 
 
 export default function Homepage() {
@@ -16,7 +17,9 @@ export default function Homepage() {
         </Col>
         <Col className="text-center">
           <h4>Let&apos;s find your next great outfit!</h4>
-          <Button >Enter Shop</Button>
+          <Form action="shop">
+            <Button type="submit">Enter Shop</Button>
+          </Form>  
         </Col>
       </Row>
     </Container>
