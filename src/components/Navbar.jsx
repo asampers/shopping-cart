@@ -6,11 +6,10 @@ export default function NavigationHeader() {
   return(
     <>
     <Navbar expand="md" className="bg-body-tertiary p-3">
-      <Navbar.Brand href="#home"><HomeIcon width="20"/></Navbar.Brand>
+      <Navbar.Brand href="/"><HomeIcon width="20"/></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-5"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-4">
-          <Nav.Link href="#home"></Nav.Link>
           <Nav.Link href="#link">ABOUT</Nav.Link>
           <Nav.Link href="#link">SHOP</Nav.Link>
         </Nav>

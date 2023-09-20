@@ -5,7 +5,6 @@ function Root() {
   return (
     <>
       <Navbar />
-      <h1 className='text-center'>Shopping Cart App</h1>
       <Outlet />
     </>
   )
