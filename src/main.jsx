@@ -7,6 +7,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Root from './routes/Root'
+import Shop from './routes/Shop';
+import About from './routes/About'
 import ErrorPage from './error-page';
 import Homepage from './routes/Homepage';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +21,15 @@ const router = createBrowserRouter(
       errorElement={<ErrorPage />}
     >
       <Route errorElement={<ErrorPage />}>
-        <Route index={true} element={<Homepage />} />
+        <Route index element={<Homepage />} />
+        <Route 
+          path='shop'
+          element={<Shop />}
+        />
+        <Route 
+          path='/about'
+          element={<About />}
+        />
       </Route>
     </Route>
   )
