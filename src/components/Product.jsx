@@ -5,16 +5,22 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function Product() {
+export default function Product({item}) {
+  const textStyle= {
+    maxHeight: "100px", 
+    overflow: "hidden"
+  }
+
+  if(item)
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={item.image} style={{maxWidth: "100px"}}/>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card&apos;s content.
+        <Card.Title>{item.title}</Card.Title>
+        <Card.Text style={textStyle}>
+          {item.description}
         </Card.Text>
+        <Card.Text>${item.price}</Card.Text>
         <Form >
           <Row>
             <Col> 
