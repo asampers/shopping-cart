@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useState, useEffect } from 'react';
 import Product from "../components/Product"
+import LoadingCard from "../components/LoadingCard";
 import axios from "axios"
 
 export default function Shop() {
@@ -29,10 +30,22 @@ export default function Shop() {
   getData();
 }, []);
   
-  if (!loading)
+  if (loading) 
+    return (
+      <Container>
+        <Row className="g-4 m-auto">
+          {Array.from({length: 20}).map((_,ind) => (
+            <Col key={ind}>
+              <LoadingCard />
+            </Col>
+          ))}
+        </Row>
+      </Container>  
+  )
+
+
   return(
     <>
-      <h1 className="text-center">This is the shopping page.</h1>
       <Container>
         <Row className="g-4 m-auto">
           {data.map((prod) => (

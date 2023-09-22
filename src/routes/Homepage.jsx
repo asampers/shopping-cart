@@ -10,12 +10,12 @@ import { Form } from 'react-router-dom';
 export default function Homepage() {
   return(
     <Container fluid>
-      <h1 className="text-center">Shopping Cart App</h1>
-      <Row className="align-items-md-center">
-        <Col clas>
-          <Image className="w-100" src={homeImage}/>
+      <h1 className="text-center m-4">Shopping Cart App</h1>
+      <Row className="align-items-center justify-content-center">
+        <Col md="auto">
+          <Image style={{maxWidth: "500px"}} src={homeImage}/> 
         </Col>
-        <Col className="text-center">
+        <Col md="auto" className="text-center">
           <h4>Let&apos;s find your next great outfit!</h4>
           <Form action="shop">
             <Button type="submit">Enter Shop</Button>

@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+
 //import { Form } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -8,8 +9,8 @@ import Col from 'react-bootstrap/Col';
 export default function Product({item}) {
   const textStyle= {
     display: "-webkit-box",
-    webkitBoxOrient: "vertical",
-    webkitLineClamp: "5",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: "5",
     height: "120px", 
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -17,8 +18,8 @@ export default function Product({item}) {
 
   const titleStyle = {
     display: "-webkit-box",
-    webkitBoxOrient: "vertical",
-    webkitLineClamp: "3",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: "3",
     height: "72px", 
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -46,7 +47,6 @@ export default function Product({item}) {
             </Col>  
           </Row>
         </Form>
-          
       </Card.Body>
     </Card>
   )
