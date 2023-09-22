@@ -9,11 +9,11 @@ import { Form } from 'react-router-dom';
 
 export default function Homepage() {
   return(
-    <Container fluid>
+    <Container >
       <h1 className="text-center m-4">Shopping Cart App</h1>
       <Row className="align-items-center justify-content-center">
         <Col md="auto">
-          <Image style={{maxWidth: "500px"}} src={homeImage}/> 
+          <Image style={{maxWidth: "300px"}} src={homeImage}/> 
         </Col>
         <Col md="auto" className="text-center">
           <h4>Let&apos;s find your next great outfit!</h4>

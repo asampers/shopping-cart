@@ -2,9 +2,10 @@ import Container from "react-bootstrap/Container";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useState, useEffect } from 'react';
+import axios from "axios"
 import Product from "../components/Product"
 import LoadingCard from "../components/LoadingCard";
-import axios from "axios"
+
 
 export default function Shop() {
   const [data, setData] = useState(null);
