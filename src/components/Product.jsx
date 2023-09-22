@@ -7,16 +7,31 @@ import Col from 'react-bootstrap/Col';
 
 export default function Product({item}) {
   const textStyle= {
-    maxHeight: "100px", 
-    overflow: "hidden"
+    display: "-webkit-box",
+    webkitBoxOrient: "vertical",
+    webkitLineClamp: "5",
+    height: "120px", 
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+  }
+
+  const titleStyle = {
+    display: "-webkit-box",
+    webkitBoxOrient: "vertical",
+    webkitLineClamp: "3",
+    height: "72px", 
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   }
 
   if(item)
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={item.image} style={{maxWidth: "100px"}}/>
+      <div style={{height: "100px", display: "flex", justifyContent: "center", alignItems: "center", paddingTop: "10px"}} >
+        <Card.Img  src={item.image} style={{maxWidth: "80px", maxHeight: "100px"}}/>
+      </div>
       <Card.Body>
-        <Card.Title>{item.title}</Card.Title>
+        <Card.Title className="text-center" style={titleStyle}>{item.title}</Card.Title>
         <Card.Text style={textStyle}>
           {item.description}
         </Card.Text>
