@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function Product({item}) {
+export default function Product({item, onChange, onClick}) {
   const textStyle= {
     display: "-webkit-box",
     WebkitBoxOrient: "vertical",
@@ -25,6 +25,9 @@ export default function Product({item}) {
     textOverflow: "ellipsis",
   }
 
+  const btnColor = item.inCart ? "success" : "primary";
+  const btnText = item.inCart ? "In Cart" : "Add to Cart";
+
   if(item)
   return (
     <Card style={{ width: '18rem' }}>
@@ -40,10 +43,10 @@ export default function Product({item}) {
         <Form >
           <Row>
             <Col> 
-              <Form.Control size="sm" type="number" name="quantity" min="1" placeholder="1"/>
+              <Form.Control size="sm" type="number" name="quantity" min="1" placeholder={item.quantity} onChange={onChange}/>
             </Col>
             <Col>
-              <Button size="sm" variant="primary">Add to Cart</Button>
+              <Button size="sm" variant={btnColor} onClick={onClick}>{btnText} </Button>
             </Col>  
           </Row>
         </Form>

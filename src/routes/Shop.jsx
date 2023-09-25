@@ -1,35 +1,36 @@
 import Container from "react-bootstrap/Container";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { useState, useEffect } from 'react';
-import axios from "axios"
 import Product from "../components/Product"
 import LoadingCard from "../components/LoadingCard";
-
+import { useOutletContext } from "react-router-dom";
 
 export default function Shop() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const {data, error, loading, setData} = useOutletContext();
   
-  useEffect(() => {
-  const getData = async () => {
-    try {
-      const response = await axios.get(
-        "https://fakestoreapi.com/products"
-      );
-      setData(response.data);
-      console.log(response.data)
-      setError(null);
-    } catch (err) {
-      setError(err.message);
-      setData(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-  getData();
-}, []);
+  const handleChange = (e, index) => {
+    const newData = data.map((item, i) =>{
+      if (i === index) {
+        return {...item, quantity: e.target.value}
+      } else {
+        return item
+      }
+    })
+
+    setData(newData);
+  }
+
+  const handleClick = (index) => {
+    const newData = data.map((item, i) =>{
+      if (i === index) {
+        return {...item, inCart: !item.inCart}
+      } else {
+        return item
+      }
+    })
+
+    setData(newData);
+  }
   
   if (loading) 
     return (
@@ -49,9 +50,13 @@ export default function Shop() {
     <>
       <Container>
         <Row className="g-4 m-auto">
-          {data.map((prod) => (
+          {data.map((prod, ind) => (
             <Col key={prod.id}>
-              <Product item={prod} />
+              <Product 
+                item={prod}
+                onChange={(e) => handleChange(e, ind)}
+                onClick={() => handleClick(ind)}
+              />
             </Col>
           ))}
         </Row>
