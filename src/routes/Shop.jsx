@@ -6,30 +6,46 @@ import LoadingCard from "../components/LoadingCard";
 import { useOutletContext } from "react-router-dom";
 
 export default function Shop() {
-  const {data, error, loading, setData} = useOutletContext();
-  
-  const handleChange = (e, index) => {
-    const newData = data.map((item, i) =>{
-      if (i === index) {
-        return {...item, quantity: e.target.value}
+  const {data, error, loading, setData, cart, setCart} = useOutletContext();
+
+  const addToCart = (id) => {
+    setCart([...cart, id]);
+    const newData = data.map((item) =>{
+      if (item.id === id) {
+        return {...item, inCart: true}
       } else {
         return item
       }
     })
+    setData(newData)
+  }
 
+  const removeFromCart = (id) => {
+    setCart(cart.filter(c => c !== id));
+    const newData = data.map((item) =>{
+      if (item.id === id) {
+        return {...item, inCart: false, quantity: 1}
+      } else {
+        return item
+      }
+    })
+    setData(newData)
+  }
+  
+  const handleChange = (e, id) => {
+    const newData = data.map((item) =>{
+      if (item.id === id) {
+        return {...item, quantity: e.target.value};
+      } else {
+        return item;
+      }
+    })
+    
     setData(newData);
   }
 
-  const handleClick = (index) => {
-    const newData = data.map((item, i) =>{
-      if (i === index) {
-        return {...item, inCart: !item.inCart}
-      } else {
-        return item
-      }
-    })
-
-    setData(newData);
+  const handleClick = (id) => {
+    cart.includes(id) ? removeFromCart(id) : addToCart(id);
   }
   
   if (loading) 
@@ -50,12 +66,12 @@ export default function Shop() {
     <>
       <Container>
         <Row className="g-4 m-auto">
-          {data.map((prod, ind) => (
+          {data.map((prod) => (
             <Col key={prod.id}>
               <Product 
                 item={prod}
-                onChange={(e) => handleChange(e, ind)}
-                onClick={() => handleClick(ind)}
+                onChange={(e) => handleChange(e, prod.id)}
+                onClick={() => handleClick(prod.id)}
               />
             </Col>
           ))}

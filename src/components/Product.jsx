@@ -27,7 +27,7 @@ export default function Product({item, onChange, onClick}) {
 
   const btnColor = item.inCart ? "success" : "primary";
   const btnText = item.inCart ? "In Cart" : "Add to Cart";
-
+  
   if(item)
   return (
     <Card style={{ width: '18rem' }}>
@@ -43,7 +43,7 @@ export default function Product({item, onChange, onClick}) {
         <Form >
           <Row>
             <Col> 
-              <Form.Control size="sm" type="number" name="quantity" min="1" placeholder={item.quantity} onChange={onChange}/>
+              <Form.Control size="sm" type="number" name="quantity" min="1" placeholder={1} value={item.quantity} onChange={onChange}/>
             </Col>
             <Col>
               <Button size="sm" variant={btnColor} onClick={onClick}>{btnText} </Button>
