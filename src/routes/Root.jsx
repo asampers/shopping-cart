@@ -1,9 +1,9 @@
-import { Outlet } from 'react-router-dom'
+import CheckoutCard from "../components/CheckoutCard";
 import { HomeIcon, ShoppingBagIcon } from "@heroicons/react/24/solid"
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Badge from 'react-bootstrap/Badge';
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from "axios"
 
@@ -13,13 +13,18 @@ function Root() {
   const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
 
-  const totalCartItems = () => {
+  const cartQuantity = () => {
     let sum = 0;
     cart.forEach((i) => {
       let num = data.find((prod) => prod.id == i);
       sum = sum + Number(num.quantity);
     })
     return sum
+  }
+
+  const cartProducts = () => {
+    const products = cart.map((i) => {return data.find((prod) => prod.id == i)})
+    return products;
   }
 
   useEffect(() => {
@@ -30,7 +35,6 @@ function Root() {
       );
       let updatedResponse = response.data.map((prod) => ({...prod, inCart: false, quantity: 1}))
       setData(updatedResponse);
-      console.log(updatedResponse)
       setError(null);
     } catch (err) {
       setError(err.message);
@@ -53,12 +57,13 @@ function Root() {
           <NavLink to="/shop" className="nav-link">SHOP</NavLink>
         </Nav>
       </Navbar.Collapse>
-      <Nav.Link onClick={console.log(cart)} >
+      <Nav.Link  >
         <ShoppingBagIcon width="20"/>
-        <Badge bg="secondary">{totalCartItems()}</Badge>
+        <Badge bg="secondary">{cartQuantity()}</Badge>
         <span className="visually-hidden">Items in checkout</span>
       </Nav.Link>
     </Navbar>
+    <CheckoutCard products={cartProducts()}/>
     
     <Outlet context={{data, error, loading, setData, cart, setCart}}/>
     </>

@@ -8,28 +8,21 @@ import { useOutletContext } from "react-router-dom";
 export default function Shop() {
   const {data, error, loading, setData, cart, setCart} = useOutletContext();
 
-  const addToCart = (id) => {
+  const addToCart = (id, newData) => {
     setCart([...cart, id]);
-    const newData = data.map((item) =>{
-      if (item.id === id) {
-        return {...item, inCart: true}
-      } else {
-        return item
-      }
-    })
     setData(newData)
   }
 
-  const removeFromCart = (id) => {
+  const removeFromCart = (id, newData) => {
     setCart(cart.filter(c => c !== id));
-    const newData = data.map((item) =>{
+    const newQuantity = newData.map((item) =>{
       if (item.id === id) {
-        return {...item, inCart: false, quantity: 1}
+        return {...item, quantity: 1}
       } else {
         return item
       }
     })
-    setData(newData)
+    setData(newQuantity)
   }
   
   const handleChange = (e, id) => {
@@ -45,7 +38,14 @@ export default function Shop() {
   }
 
   const handleClick = (id) => {
-    cart.includes(id) ? removeFromCart(id) : addToCart(id);
+    const newData = data.map((item) =>{
+      if (item.id === id) {
+        return {...item, inCart: !item.inCart}
+      } else {
+        return item
+      }
+    })
+    cart.includes(id) ? removeFromCart(id, newData) : addToCart(id, newData);
   }
   
   if (loading) 
