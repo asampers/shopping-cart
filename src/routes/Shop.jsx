@@ -6,48 +6,8 @@ import LoadingCard from "../components/LoadingCard";
 import { useOutletContext } from "react-router-dom";
 
 export default function Shop() {
-  const {data, error, loading, setData, cart, setCart} = useOutletContext();
+  const {data, error, loading, handleClick, handleChange} = useOutletContext();
 
-  const addToCart = (id, newData) => {
-    setCart([...cart, id]);
-    setData(newData)
-  }
-
-  const removeFromCart = (id, newData) => {
-    setCart(cart.filter(c => c !== id));
-    const newQuantity = newData.map((item) =>{
-      if (item.id === id) {
-        return {...item, quantity: 1}
-      } else {
-        return item
-      }
-    })
-    setData(newQuantity)
-  }
-  
-  const handleChange = (e, id) => {
-    const newData = data.map((item) =>{
-      if (item.id === id) {
-        return {...item, quantity: e.target.value};
-      } else {
-        return item;
-      }
-    })
-    
-    setData(newData);
-  }
-
-  const handleClick = (id) => {
-    const newData = data.map((item) =>{
-      if (item.id === id) {
-        return {...item, inCart: !item.inCart}
-      } else {
-        return item
-      }
-    })
-    cart.includes(id) ? removeFromCart(id, newData) : addToCart(id, newData);
-  }
-  
   if (loading) 
     return (
       <Container>
@@ -60,7 +20,6 @@ export default function Shop() {
         </Row>
       </Container>  
   )
-
 
   return(
     <>

@@ -12,6 +12,9 @@ function Root() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [cart, setCart] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const toggleShow = () => setShow(!show);
 
   const cartQuantity = () => {
     let sum = 0;
@@ -25,6 +28,46 @@ function Root() {
   const cartProducts = () => {
     const products = cart.map((i) => {return data.find((prod) => prod.id == i)})
     return products;
+  }
+
+    const addToCart = (id, newData) => {
+    setCart([...cart, id]);
+    setData(newData)
+  }
+
+  const removeFromCart = (id, newData) => {
+    setCart(cart.filter(c => c !== id));
+    const newQuantity = newData.map((item) =>{
+      if (item.id === id) {
+        return {...item, quantity: 1}
+      } else {
+        return item
+      }
+    })
+    setData(newQuantity)
+  }
+  
+  const handleChange = (e, id) => {
+    const newData = data.map((item) =>{
+      if (item.id === id) {
+        return {...item, quantity: e.target.value};
+      } else {
+        return item;
+      }
+    })
+    
+    setData(newData);
+  }
+
+  const handleClick = (id) => {
+    const newData = data.map((item) =>{
+      if (item.id === id) {
+        return {...item, inCart: !item.inCart}
+      } else {
+        return item
+      }
+    })
+    cart.includes(id) ? removeFromCart(id, newData) : addToCart(id, newData);
   }
 
   useEffect(() => {
@@ -57,15 +100,21 @@ function Root() {
           <NavLink to="/shop" className="nav-link">SHOP</NavLink>
         </Nav>
       </Navbar.Collapse>
-      <Nav.Link  >
+      <Nav.Link onClick={toggleShow}>
         <ShoppingBagIcon width="20"/>
         <Badge bg="secondary">{cartQuantity()}</Badge>
         <span className="visually-hidden">Items in checkout</span>
       </Nav.Link>
     </Navbar>
-    <CheckoutCard products={cartProducts()}/>
+    <CheckoutCard
+      status={show ? "visible" : "hidden"}
+      toggle={toggleShow} 
+      products={cartProducts()} 
+      onClick={handleClick} 
+      onChange={handleChange}
+    />
     
-    <Outlet context={{data, error, loading, setData, cart, setCart}}/>
+    <Outlet context={{data, error, loading, handleClick, handleChange}}/>
     </>
   )
 }
