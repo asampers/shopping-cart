@@ -11,6 +11,7 @@ import Shop from './routes/Shop';
 import About from './routes/About'
 import ErrorPage from './error-page';
 import Homepage from './routes/Homepage';
+import Checkout from './routes/Checkout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter(
         <Route 
           path='/about'
           element={<About />}
+        />
+        <Route 
+          path='/checkout'
+          element={<Checkout />}
         />
       </Route>
     </Route>
