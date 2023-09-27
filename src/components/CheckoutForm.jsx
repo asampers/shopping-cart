@@ -3,8 +3,10 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import { useState } from 'react';
+import { Form as ReactForm} from "react-router-dom";
 
 export default function CheckoutForm() {
   const [open, setOpen] = useState(true);
@@ -134,6 +136,14 @@ export default function CheckoutForm() {
           </Form>
         </Card.Body>
       </Card>
+      <Container className="d-flex justify-content-between">
+        <ReactForm action="/shop">
+          <Button type="submit" variant="secondary">Continue Shopping</Button>
+        </ReactForm>
+        <ReactForm action="/confirm">
+          <Button variant="success">Submit</Button>
+        </ReactForm>
+      </Container>
     </Container>
   )
 }
