@@ -114,7 +114,7 @@ function Root() {
       onChange={handleChange}
     />
     
-    <Outlet context={{data, error, loading, handleClick, handleChange}}/>
+    <Outlet context={{data, error, loading, handleClick, handleChange, cartProducts}}/>
     </>
   )
 }

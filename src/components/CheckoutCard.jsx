@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import CloseButton from 'react-bootstrap/CloseButton';
 import { TrashIcon } from "@heroicons/react/20/solid";
 import { Form as ReactForm} from "react-router-dom";
+import { subTotal } from '../helpers/helperFunctions';
 
 export default function CheckoutCard({status, toggle, products, onClick, onChange}) {
   const cardStyle = {
@@ -17,14 +18,6 @@ export default function CheckoutCard({status, toggle, products, onClick, onChang
     right: "40px", 
     top: "60px",
     border: ".5rem solid",
-  }
-  
-  const subTotal = () => {
-    let sum = 0.00;
-    products.forEach((prod) => {
-      sum = sum + (Number(prod.quantity) * prod.price);
-    })
-    return sum.toFixed(2)
   }
 
   return (
@@ -52,7 +45,7 @@ export default function CheckoutCard({status, toggle, products, onClick, onChang
             ))}
         </ListGroup>
         <hr style={{margin: "0 0 0.5rem 0"}}></hr>
-        <Card.Text className="text-end">subtotal: ${subTotal()}</Card.Text>
+        <Card.Text className="text-end">subtotal: ${subTotal(products)}</Card.Text>
         <ReactForm action="checkout">
           <Button type="submit" style={{marginLeft: "35%"}} variant="success" disabled={products.length == 0} onClick={toggle}>CHECKOUT</Button>
         </ReactForm>
