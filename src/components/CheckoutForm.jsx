@@ -140,8 +140,8 @@ export default function CheckoutForm() {
         <ReactForm action="/shop">
           <Button type="submit" variant="secondary">Continue Shopping</Button>
         </ReactForm>
-        <ReactForm action="/confirm">
-          <Button variant="success">Submit</Button>
+        <ReactForm action="/confirmation">
+          <Button type="submit" variant="success">Submit</Button>
         </ReactForm>
       </Container>
     </Container>

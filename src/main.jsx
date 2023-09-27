@@ -12,11 +12,13 @@ import About from './routes/About'
 import ErrorPage from './error-page';
 import Homepage from './routes/Homepage';
 import Checkout from './routes/Checkout';
+import Confirm from './routes/Confirm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+    <>
     <Route 
       path='/'
       element={<Root />}
@@ -36,8 +38,15 @@ const router = createBrowserRouter(
           path='/checkout'
           element={<Checkout />}
         />
+
       </Route>
+        
     </Route>
+    <Route 
+      path='/confirmation'
+      element={<Confirm />}
+    />
+  </>
   )
 );
 
