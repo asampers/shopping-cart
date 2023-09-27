@@ -73,7 +73,7 @@ export default function CheckoutForm() {
       <Card className="bg-light mb-3">
         <Card.Header>Billing</Card.Header>
         <Card.Body>
-          <Form>
+          <Form key={open}>
             <Row>
               <Col className="mt-1">
                 <Form.Label>First Name</Form.Label>
