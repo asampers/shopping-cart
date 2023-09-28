@@ -9,13 +9,14 @@ import { TrashIcon } from "@heroicons/react/20/solid";
 import { subTotal, itemTotal } from '../helpers/helperFunctions';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import '../styles/summaryCard.css';
 
 export default function SummaryCard({products, onChange, onClick}) {
   const [show, setShow] = useState(false);
   const toggleShow = () => setShow(!show);
 
   return (
-    <Container className="mt-3">
+    <Container className="mt-3 summaryCard">
       <Card >
         <Card.Header className="d-flex align-items-center justify-content-between">
           Order Summary:
@@ -28,7 +29,7 @@ export default function SummaryCard({products, onChange, onClick}) {
                   <Row  className="align-items-center nowrap">  
                     <Card.Img src={prod.image}  style={{maxWidth: "50px", maxHeight: "40px"}}/>
                     <Col>{prod.quantity} x ${prod.price} </Col>
-                    {show && <Col xs={3} sm={2}> 
+                    {show && <Col xs={3} sm={2}  xxl={4}> 
                       <Form.Control  type="number" name="quantity" min="1" max="100" value={prod.quantity} onChange={(e) => onChange(e, prod.id)}/>
                     </Col>}
                     <span style={{width: "fit-content"}} className="float-end">

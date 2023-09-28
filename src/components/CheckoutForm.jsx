@@ -11,7 +11,7 @@ export default function CheckoutForm() {
 
   return (
     
-    <Container className="mt-3 pb-3">
+    <Container className="mt-3 pb-3 flex-grow-1">
       <Shipping status={open} onClick={setOpen}/>
       <Billing status={open}/>
       <Payment />
