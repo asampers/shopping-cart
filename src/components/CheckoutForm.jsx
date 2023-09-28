@@ -10,7 +10,7 @@ import { Form as ReactForm} from "react-router-dom";
 
 export default function CheckoutForm() {
   const [open, setOpen] = useState(true);
-console.log(location.pathname)
+
   return (
     
     <Container className="mt-3 mb-3">

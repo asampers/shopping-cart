@@ -1,10 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
-//import { Form } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import PropTypes from 'prop-types';
 
 export default function Product({item, onChange, onClick}) {
   const textStyle= {
@@ -53,4 +52,10 @@ export default function Product({item, onChange, onClick}) {
       </Card.Body>
     </Card>
   )
+}
+
+Product.propTypes = {
+  item: PropTypes.object,
+  onClick: PropTypes.func,
+  onChange: PropTypes.func,
 }

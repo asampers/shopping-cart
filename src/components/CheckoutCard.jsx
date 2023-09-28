@@ -8,6 +8,7 @@ import CloseButton from 'react-bootstrap/CloseButton';
 import { TrashIcon } from "@heroicons/react/20/solid";
 import { Form as ReactForm} from "react-router-dom";
 import { subTotal } from '../helpers/helperFunctions';
+import PropTypes from 'prop-types';
 
 export default function CheckoutCard({status, toggle, products, onClick, onChange}) {
   const cardStyle = {
@@ -52,4 +53,12 @@ export default function CheckoutCard({status, toggle, products, onClick, onChang
       </Card.Body>
     </Card>
   );
+}
+
+CheckoutCard.propTypes = {
+  status: PropTypes.bool,
+  toggle: PropTypes.func,
+  onClick: PropTypes.func,
+  onChange: PropTypes.func,
+  products: PropTypes.array,
 }

@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { TrashIcon } from "@heroicons/react/20/solid";
 import { subTotal, itemTotal } from '../helpers/helperFunctions';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function SummaryCard({products, onChange, onClick}) {
   const [show, setShow] = useState(false);
@@ -44,4 +45,10 @@ export default function SummaryCard({products, onChange, onClick}) {
       </Card>
     </Container>
   )
+}
+
+SummaryCard.propTypes = {
+  products: PropTypes.array,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func,
 }
