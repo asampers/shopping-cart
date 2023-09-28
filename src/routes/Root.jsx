@@ -106,13 +106,13 @@ function Root() {
         <span className="visually-hidden">Items in checkout</span>
       </Nav.Link>
     </Navbar>
-    <CheckoutCard
+    {location.pathname !== "/checkout" && <CheckoutCard
       status={show ? "visible" : "hidden"}
       toggle={toggleShow} 
       products={cartProducts()} 
       onClick={handleClick} 
       onChange={handleChange}
-    />
+    />}
     
     <Outlet context={{data, error, loading, handleClick, handleChange, cartProducts}}/>
     </>
