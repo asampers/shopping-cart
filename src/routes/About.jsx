@@ -11,8 +11,8 @@ export default function About() {
           <Card.Text>
             This app was made by Anna Sampers. Anna learned to code from The Odin Project.
           </Card.Text>
-          <Button variant="secondary" className="m-2">Click here for project instructions.</Button>
-          <Button variant="success">Click here for Anna Sampers&apos; Github.</Button>
+          <Button variant="outline-secondary" className="m-2">Click here for project instructions.</Button>
+          <Button variant="outline-secondary">Click here for Anna Sampers&apos; Github.</Button>
         </Card.Body>
       </Card>
     </Container>

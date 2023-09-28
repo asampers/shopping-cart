@@ -1,0 +1,19 @@
+.checkoutCard {
+    width: 25rem; 
+    position: absolute !important;
+    z-index: 1;
+    right: 40px; 
+    top: 60px;
+    border: .5rem solid !important;
+}
+
+@media (max-width: 500px) {
+  .checkoutCard {
+    width: 90%;
+    position: absolute;
+    z-index: 1;
+    right: 20px;
+    top: 60px;
+    border: 0.5rem solid;
+  }
+}

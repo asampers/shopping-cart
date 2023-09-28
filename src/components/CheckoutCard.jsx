@@ -9,20 +9,11 @@ import { TrashIcon } from "@heroicons/react/20/solid";
 import { Form as ReactForm} from "react-router-dom";
 import { subTotal } from '../helpers/helperFunctions';
 import PropTypes from 'prop-types';
+import "../styles/checkoutCard.css";
 
 export default function CheckoutCard({status, toggle, products, onClick, onChange}) {
-  const cardStyle = {
-    width: '25rem', 
-    visibility: status, 
-    position: "absolute",
-    zIndex: "1", 
-    right: "40px", 
-    top: "60px",
-    border: ".5rem solid",
-  }
-
   return (
-    <Card style={cardStyle}>
+    <Card style={{visibility: status}} className="checkoutCard">
       <Card.Header className="d-flex align-items-center justify-content-between">
         Your Cart:
         <CloseButton aria-label="Hide" onClick={toggle}/> 

@@ -93,7 +93,7 @@ function Root() {
     <>
       <Navbar expand="md" className="bg-body-tertiary p-3">
       <NavLink to="/" className="navbar-brand"><HomeIcon width="20"/></NavLink>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-5"/>
+      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-4">
           <NavLink to="/about" className="nav-link">ABOUT</NavLink>
