@@ -5,18 +5,14 @@ import Image from 'react-bootstrap/Image';
 import homeImage from '../assets/homepage.jpg'
 import Button from 'react-bootstrap/Button';
 import { Form } from 'react-router-dom';
-
+import '../styles/homepage.css';
 
 export default function Homepage() {
   return(
-    <Container >
-      <h1 className="text-center m-4">Shopping Cart App</h1>
+    <Container fluid className="homepage">
       <Row className="align-items-center justify-content-center">
-        <Col md="auto">
-          <Image style={{maxWidth: "300px"}} src={homeImage}/> 
-        </Col>
-        <Col md="auto" className="text-center">
-          <h4>Let&apos;s find your next great outfit!</h4>
+        <Col md="auto" className="text-center mt-4">
+          <h1>Let&apos;s find your next great outfit!</h1>
           <Form action="shop">
             <Button type="submit">Enter Shop</Button>
           </Form>  
