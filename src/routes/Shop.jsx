@@ -23,7 +23,7 @@ export default function Shop() {
 
   return(
     <>
-      <Container className="mb-4">
+      <Container className="pb-4">
         <Row className="g-4 m-auto">
           {data.map((prod) => (
             <Col md={6} lg={4} xxl={3} key={prod.id}>

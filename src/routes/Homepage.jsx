@@ -14,7 +14,7 @@ export default function Homepage() {
         <Col md="auto" className="text-center mt-4">
           <h1>Let&apos;s find your next great outfit!</h1>
           <Form action="shop">
-            <Button type="submit">Enter Shop</Button>
+            <Button type="submit" variant="dark">Enter Shop</Button>
           </Form>  
         </Col>
       </Row>

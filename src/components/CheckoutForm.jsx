@@ -13,7 +13,7 @@ export default function CheckoutForm() {
 
   return (
     
-    <Container className="mt-3 mb-3">
+    <Container className="mt-3 pb-3">
       <Card className="bg-light mb-3">
         <Card.Header>Shipping</Card.Header>
         <Card.Body>
@@ -137,7 +137,7 @@ export default function CheckoutForm() {
           </Form>
         </Card.Body>
       </Card>
-      <Container className="d-flex justify-content-between">
+      <Container className="d-flex justify-content-between bg-light p-2 rounded">
         <ReactForm action="/shop">
           <Button type="submit" variant="secondary">Continue Shopping</Button>
         </ReactForm>
