@@ -56,7 +56,7 @@ export default function CheckoutCard({status, toggle, products, onClick, onChang
 }
 
 CheckoutCard.propTypes = {
-  status: PropTypes.bool,
+  status: PropTypes.string,
   toggle: PropTypes.func,
   onClick: PropTypes.func,
   onChange: PropTypes.func,

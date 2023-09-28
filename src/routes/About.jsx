@@ -1,5 +1,20 @@
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Container from 'react-bootstrap/Container';
+
+
 export default function About() {
   return(
-    <h1>This is the About Page.</h1>
+    <Container className="mt-4">
+      <Card className="bg-light text-center">
+        <Card.Body>
+          <Card.Text>
+            This app was made by Anna Sampers. Anna learned to code from The Odin Project.
+          </Card.Text>
+          <Button variant="secondary" className="m-2">Click here for project instructions.</Button>
+          <Button variant="success">Click here for Anna Sampers&apos; Github.</Button>
+        </Card.Body>
+      </Card>
+    </Container>
   )
 }

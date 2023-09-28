@@ -10,10 +10,10 @@ export default function Shop() {
 
   if (loading) 
     return (
-      <Container>
+      <Container className="mb-4">
         <Row className="g-4 m-auto">
           {Array.from({length: 20}).map((_,ind) => (
-            <Col key={ind}>
+            <Col xs={12} md={6} lg={4} xxl={3} key={ind}>
               <LoadingCard />
             </Col>
           ))}
@@ -23,10 +23,10 @@ export default function Shop() {
 
   return(
     <>
-      <Container>
+      <Container className="mb-4">
         <Row className="g-4 m-auto">
           {data.map((prod) => (
-            <Col key={prod.id}>
+            <Col md={6} lg={4} xxl={3} key={prod.id}>
               <Product 
                 item={prod}
                 onChange={(e) => handleChange(e, prod.id)}
