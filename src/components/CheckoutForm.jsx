@@ -43,11 +43,11 @@ export default function CheckoutForm() {
                 <Form.Label>City</Form.Label>
                 <Form.Control type="text" placeholder="San Francisco"/>
               </Col>
-              <Col className="mt-1">
+              <Col xs={3} md={2} className="mt-1">
                 <Form.Label>State</Form.Label>
                 <Form.Control type="text" placeholder="CA"/>
               </Col>
-              <Col className="mt-1">
+              <Col xs={4} md={2} className="mt-1">
                 <Form.Label>Zip Code</Form.Label>
                 <Form.Control type="text" placeholder="54321"/>
               </Col>
@@ -102,11 +102,11 @@ export default function CheckoutForm() {
                 <Form.Label>City</Form.Label>
                 <Form.Control type="text" placeholder="San Francisco"/>
               </Col>
-              <Col className="mt-1">
+              <Col xs={3} md={2} className="mt-1">
                 <Form.Label>State</Form.Label>
                 <Form.Control type="text" placeholder="CA"/>
               </Col>
-              <Col className="mt-1">
+              <Col xs={4} md={2} className="mt-1">
                 <Form.Label>Zip Code</Form.Label>
                 <Form.Control type="text" placeholder="98765"/>
               </Col>
@@ -121,7 +121,7 @@ export default function CheckoutForm() {
         <Card.Body>
           <Form>
             <Row>
-              <Col className="mt-1">
+              <Col xs={12} sm={4} className="mt-1">
                 <Form.Label>Name on Card</Form.Label>
                 <Form.Control type="text" placeholder="Jane Smith"/>
               </Col>
