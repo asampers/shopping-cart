@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import PropTypes from 'prop-types';
 
 export default function Shipping({status, onClick}) {
   return (
@@ -63,4 +64,9 @@ export default function Shipping({status, onClick}) {
         </Card.Body>
       </Card>
   )
+}
+
+Shipping.propTypes = {
+  status: PropTypes.bool,
+  onClick: PropTypes.func,
 }

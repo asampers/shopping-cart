@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Collapse from 'react-bootstrap/Collapse';
+import PropTypes from 'prop-types';
 
 export default function Billing({status}) {
   return (
@@ -52,4 +53,8 @@ export default function Billing({status}) {
       </div>
     </Collapse>
   )
+}
+
+Billing.propTypes = {
+  status: PropTypes.bool,
 }
