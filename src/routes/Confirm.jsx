@@ -5,10 +5,10 @@ import { Form } from 'react-router-dom';
 
 export default function Confirm() {
   return (
-    <Container className="mt-3">
+    <Container className="pt-5">
       <Card className="text-center">
         <Card.Header className="fw-bold">Thank you for shopping with us!</Card.Header>
-        <Card.Body>
+        <Card.Body className="pt-5 pb-5">
           <Card.Text>We&apos;ve received your fake order and will be shipping it out shortly.</Card.Text>
           <Card.Text>Your fake confirmation number is #654321.</Card.Text>
           <Form action="/">
