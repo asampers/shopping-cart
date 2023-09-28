@@ -28,7 +28,7 @@ export default function SummaryCard({products, onChange, onClick}) {
                   <Row  className="align-items-center nowrap">  
                     <Card.Img src={prod.image}  style={{maxWidth: "50px", maxHeight: "40px"}}/>
                     <Col>{prod.quantity} x ${prod.price} </Col>
-                    {show && <Col sm={2}> 
+                    {show && <Col xs={3} sm={2}> 
                       <Form.Control  type="number" name="quantity" min="1" max="100" value={prod.quantity} onChange={(e) => onChange(e, prod.id)}/>
                     </Col>}
                     <span style={{width: "fit-content"}} className="float-end">
