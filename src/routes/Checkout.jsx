@@ -9,7 +9,7 @@ export default function Checkout() {
 
   return (
     <>
-      <Container className="d-xxl-flex flex-row-reverse">
+      <Container fluid className="d-xxl-flex flex-row-reverse">
       <SummaryCard 
         products={products}
         onClick={handleClick}

@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 export default function About() {
   return(
     <Container className="mt-4">
-      <Card style={{maxWidth: "930px"}} className="p-5 bg-light text-center mx-auto">
+      <Card style={{maxWidth: "930px"}} className="p-5 bg-light-subtle text-center mx-auto">
         <Card.Body>
           <Card.Text>
             This app was made by Anna Sampers. Anna learned to code from The Odin Project.

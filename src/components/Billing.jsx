@@ -9,7 +9,7 @@ export default function Billing({status}) {
   return (
     <Collapse in={status}>
       <div id="example-collapse-text">
-        <Card className="bg-light mb-3">
+        <Card className="mb-3">
           <Card.Header>Billing</Card.Header>
           <Card.Body>
             <Form key={open}>

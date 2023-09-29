@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 export default function Shipping({status, onClick}) {
   return (
-    <Card className="bg-light mb-3">
+    <Card className="mb-3">
         <Card.Header>Shipping</Card.Header>
         <Card.Body>
           <Form>

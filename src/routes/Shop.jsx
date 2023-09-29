@@ -10,7 +10,7 @@ export default function Shop() {
 
   if (loading) 
     return (
-      <Container className="mb-4">
+      <Container className="shop mb-4">
         <Row className="g-4 m-auto">
           {Array.from({length: 20}).map((_,ind) => (
             <Col xs={12} md={6} lg={4} xxl={3} key={ind}>
@@ -23,7 +23,7 @@ export default function Shop() {
 
   return(
     <>
-      <Container className="pb-4">
+      <Container className="shop pb-4">
         <Row className="g-4 m-auto">
           {data.map((prod) => (
             <Col md={6} lg={4} xxl={3} key={prod.id}>

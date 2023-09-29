@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 
 export default function Payment() {
   return (
-    <Card className="bg-light mb-3">
+    <Card className="mb-3">
       <Card.Header>Payment</Card.Header>
       <Card.Body>
         <Form>
