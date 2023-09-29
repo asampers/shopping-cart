@@ -1,7 +1,12 @@
-.homepage {
+.homepage, .about {
   height: 91.6vh;
-  background: url(../assets/homepage2.jpg) no-repeat center center fixed; 
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.6)
+    ),url(../assets/homepage2.jpg) no-repeat center center fixed; 
   background-size: cover;
+
 }
 
 body {

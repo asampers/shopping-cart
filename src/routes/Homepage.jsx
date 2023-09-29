@@ -10,7 +10,7 @@ export default function Homepage() {
     <Container fluid className="homepage">
       <Row className="align-items-center justify-content-center">
         <Col md="auto" className="text-center mt-4">
-          <h1>Let&apos;s find your next great outfit!</h1>
+          <h1 style={{color:"white", textShadow:"0 1px 0 black"}}>Let&apos;s find your next great outfit!</h1>
           <Form action="shop">
             <Button type="submit" variant="dark">Enter Shop</Button>
           </Form>  
