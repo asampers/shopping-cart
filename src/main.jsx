@@ -16,7 +16,7 @@ import Confirm from './routes/Confirm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const router = createBrowserRouter(
+export const router = createBrowserRouter(
   createRoutesFromElements(
     <>
     <Route 
@@ -38,9 +38,7 @@ const router = createBrowserRouter(
           path='/checkout'
           element={<Checkout />}
         />
-
       </Route>
-        
     </Route>
     <Route 
       path='/confirmation'
