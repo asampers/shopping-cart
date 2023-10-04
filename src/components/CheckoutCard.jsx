@@ -27,7 +27,7 @@ export default function CheckoutCard({status, toggle, products, onClick, onChang
                   <Card.Img src={prod.image}  style={{maxWidth: "50px", maxHeight: "40px"}}/>
                   <Col>${prod.price}</Col>
                 <Col xs={3}> 
-                  <Form.Control  type="number" name="quantity" min="1" max="100" value={prod.quantity} onChange={(e) => onChange(e, prod.id)}/>
+                  <Form.Control type="number" name="quantity" min="1" max="100" value={prod.quantity} onChange={(e) => onChange(e, prod.id)}/>
                 </Col>
                 <Col xs={1}>
                   <Button className="p-1"  variant="light"><TrashIcon style={{verticalAlign:"top"}} width="20px" onClick={() => onClick(prod.id)}/></Button>

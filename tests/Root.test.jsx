@@ -7,6 +7,7 @@ import Root from "../src/routes/Root";
 import Shop from "../src/routes/Shop";
 import Homepage from "../src/routes/Homepage";
 import Checkout from "../src/routes/Checkout";
+import axios from 'axios'
 import {
   MemoryRouter,
   RouterProvider,
@@ -16,19 +17,14 @@ import {
 describe("Root route", () => {
   it("correctly renders with products", async () => {
     const user = userEvent.setup();
-    
-    const {result} = renderHook(() => {
-      const [data, setData] = useState(null)
-      React.useEffect(() => {
-        setData([{id:1, title:"Title", description: "Description", image:"Img", price: "1", quantity: "1", inCart: true}])
-      }, [])
-      return data
-    })
-
+  const data = [{id:1, title:"Title", description: "Description", image:"Img", price: "1", quantity: "1", inCart: true}];
+  const mockClick = vi.fn()
+  const mockChange = vi.fn()
+  
   vi.mock('react-router-dom', async () => {
   const data = [{id:1, title:"Title", description: "Description", image:"Img", price: "1", quantity: "1", inCart: true}];
-  const onClick = vi.fn()
-  const onChange = vi.fn()
+  const mockClick = vi.fn()
+  const mockChange = vi.fn()
   const actual = await vi.importActual("react-router-dom");
   return {
     ...actual,
@@ -36,8 +32,8 @@ describe("Root route", () => {
         data: data,
         error: null,
         loading: false,
-        handleClick: onClick,
-        handleChange: onChange,
+        handleClick: mockClick,
+        handleChange: mockChange,
         cartProducts: vi.fn(() => {return data}),
       }),
     }})
@@ -68,8 +64,9 @@ describe("Root route", () => {
       initialIndex: 2,
     });
 
-    render(<MemoryRouter><Shop /></MemoryRouter>);
-    
+    render(<RouterProvider router={router}></RouterProvider>);
+    const editBtn = screen.getByRole("button", {name: "Edit Cart"})
+    await user.click(editBtn)
     screen.debug()
   })
 })
