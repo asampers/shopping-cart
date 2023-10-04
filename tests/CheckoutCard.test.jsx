@@ -10,9 +10,8 @@ describe("Checkout Card component", () => {
   const mockToggle = vi.fn();
   const visibility = "visible";
   const prodOne = {id:1, title:"One", description: "Description", image:"Img", price: "1", quantity: "30", inCart: true};
-  const prodTwo = {id:1, title:"Two", description: "Description2", image:"Img", price: "2", quantity: "10", inCart: true};
+  const prodTwo = {id:2, title:"Two", description: "Description2", image:"Img", price: "2", quantity: "10", inCart: true};
   it("renders correctly with one product", async () => {
-    const user = userEvent.setup()
  
     render(
       <MemoryRouter>
