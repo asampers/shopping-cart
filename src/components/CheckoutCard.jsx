@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CloseButton from 'react-bootstrap/CloseButton';
 import { TrashIcon } from "@heroicons/react/20/solid";
-import { Form as ReactForm} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { subTotal } from '../helpers/helperFunctions';
 import PropTypes from 'prop-types';
 import "../styles/checkoutCard.css";
@@ -38,9 +38,9 @@ export default function CheckoutCard({status, toggle, products, onClick, onChang
         </ListGroup>
         <hr style={{margin: "0 0 0.5rem 0"}}></hr>
         <Card.Text className="text-end">subtotal: ${subTotal(products)}</Card.Text>
-        <ReactForm action="checkout">
-          <Button type="submit" style={{marginLeft: "35%"}} variant="success" disabled={products.length == 0} onClick={toggle}>CHECKOUT</Button>
-        </ReactForm>
+        
+        {products.length !== 0 && <Link to={"/checkout"} style={{marginLeft: "35%"}} className="btn btn-success " onClick={toggle}>CHECKOUT</Link>}
+        
       </Card.Body>
     </Card>
   );

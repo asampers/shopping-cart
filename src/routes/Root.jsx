@@ -3,7 +3,7 @@ import { HomeIcon, ShoppingBagIcon } from "@heroicons/react/24/solid"
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Badge from 'react-bootstrap/Badge';
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from "axios"
 
@@ -92,12 +92,12 @@ function Root() {
   return (
     <>
       <Navbar expand="md" className="bg-body-tertiary p-3 rounded-bottom">
-      <NavLink to="/" className="navbar-brand"><HomeIcon width="20"/></NavLink>
+      <Link to="/" className="navbar-brand"><HomeIcon width="20"/></Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-4">
-          <NavLink to="/about" className="nav-link">ABOUT</NavLink>
-          <NavLink to="/shop" className="nav-link">SHOP</NavLink>
+          <Link to="/about" className="nav-link">ABOUT</Link>
+          <Link to="/shop" className="nav-link">SHOP</Link>
         </Nav>
       </Navbar.Collapse>
       <Nav.Link onClick={toggleShow}>
