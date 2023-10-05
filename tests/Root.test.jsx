@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { render, renderHook, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { vi, describe, it, expect } from 'vitest'
+import { vi, describe, it, expect, spyOn } from 'vitest'
 import Root from "../src/routes/Root";
 import Shop from "../src/routes/Shop";
 import Homepage from "../src/routes/Homepage";
@@ -17,14 +17,13 @@ import {
 describe("Root route", () => {
   it("correctly renders with products", async () => {
     const user = userEvent.setup();
-  const data = [{id:1, title:"Title", description: "Description", image:"Img", price: "1", quantity: "1", inCart: true}];
-  const mockClick = vi.fn()
+  const handleClick = vi.fn()
+  const data = [{id:1, title:"Title", description: "Description", image:"Img", price: "1", quantity: "1", inCart: false}];
   const mockChange = vi.fn()
   
   vi.mock('react-router-dom', async () => {
-  const data = [{id:1, title:"Title", description: "Description", image:"Img", price: "1", quantity: "1", inCart: true}];
-  const mockClick = vi.fn()
-  const mockChange = vi.fn()
+  const data = [{id:1, title:"Title", description: "Description", image:"Img", price: "1", quantity: "1", inCart: false}];
+  const handleClick = vi.fn()
   const actual = await vi.importActual("react-router-dom");
   return {
     ...actual,
@@ -32,9 +31,7 @@ describe("Root route", () => {
         data: data,
         error: null,
         loading: false,
-        handleClick: mockClick,
-        handleChange: mockChange,
-        cartProducts: vi.fn(() => {return data}),
+        handleClick: () => handleClick(data[0].id)
       }),
     }})
     
@@ -61,12 +58,13 @@ describe("Root route", () => {
 
     const router = createMemoryRouter(routes, {
       initialEntries: ["/", "/shop", "/checkout"],
-      initialIndex: 2,
+      initialIndex: 1,
     });
 
     render(<RouterProvider router={router}></RouterProvider>);
-    const editBtn = screen.getByRole("button", {name: "Edit Cart"})
-    await user.click(editBtn)
+    const deleteBtn = screen.getByTestId("delete")
+    await user.click(deleteBtn)
+    expect(handleClick).toBeCalledWith(data[0].id)
     screen.debug()
   })
 })
