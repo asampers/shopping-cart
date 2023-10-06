@@ -16,7 +16,7 @@ export default function Confirm() {
           </Form>
         </Card.Body>
         <Card.Footer>
-          <Button href="https://github.com/asampers/shopping-cart" variant="link" className="text-dark">
+          <Button href="https://github.com/asampers/shopping-cart" target="_blank" rel="noreferrer" variant="link" className="text-dark">
             <span className="me-1">
             <svg
               viewBox="0 0 1024 1024"
