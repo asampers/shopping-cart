@@ -29,7 +29,7 @@ export default function Product({item, onChange, onClick}) {
   
   if(item)
   return (
-    <Card style={{ width: '18rem' }} className="bg-light mx-auto">
+    <Card style={{ width: '18rem' }} className="mx-auto">
       <div style={{height: "100px", display: "flex", justifyContent: "center", alignItems: "center", paddingTop: "18px"}} >
         <Card.Img  src={item.image} style={{maxWidth: "80px", maxHeight: "100px"}}/>
       </div>
