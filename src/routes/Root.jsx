@@ -100,7 +100,7 @@ function Root() {
           <Link to="/shop" className="nav-link">SHOP</Link>
         </Nav>
       </Navbar.Collapse>
-      <Nav.Link onClick={toggleShow}>
+      <Nav.Link data-testid="toggler" onClick={toggleShow}>
         <ShoppingBagIcon width="20"/>
         <Badge bg="secondary">{cartQuantity()}</Badge>
         <span className="visually-hidden">Items in checkout</span>

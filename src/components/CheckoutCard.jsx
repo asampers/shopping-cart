@@ -13,7 +13,7 @@ import "../styles/checkoutCard.css";
 
 export default function CheckoutCard({status, toggle, products, onClick, onChange}) {
   return (
-    <Card style={{visibility: status}} className="checkoutCard">
+    <Card data-testid="checkoutCard" style={{visibility: status}} className="checkoutCard">
       <Card.Header className="d-flex align-items-center justify-content-between">
         Your Cart:
         <CloseButton aria-label="Hide" onClick={toggle}/> 
