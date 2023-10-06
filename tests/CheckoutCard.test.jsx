@@ -1,6 +1,5 @@
 import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import CheckoutCard from "../src/components/CheckoutCard";
 import { MemoryRouter } from "react-router-dom";
 
@@ -12,7 +11,6 @@ describe("Checkout Card component", () => {
   const prodOne = {id:1, title:"One", description: "Description", image:"Img", price: "1", quantity: "30", inCart: true};
   const prodTwo = {id:2, title:"Two", description: "Description2", image:"Img", price: "2", quantity: "10", inCart: true};
   it("renders correctly with one product", async () => {
- 
     render(
       <MemoryRouter>
         <CheckoutCard 
@@ -22,10 +20,12 @@ describe("Checkout Card component", () => {
           onChange={mockChange}
           onClick={mockClick}
         />
-      </MemoryRouter>
+      </MemoryRouter>  
     )
     const subTotal = screen.getByText("subtotal: $30.00")
+    const checkoutBtn = screen.queryByRole('link', {  name: /checkout/i})
     expect(subTotal).toBeInTheDocument()
+    expect(checkoutBtn).toBeInTheDocument()
   })
 
   it("renders correctly with more than one product", async () => {
@@ -58,7 +58,9 @@ describe("Checkout Card component", () => {
     )
     const subTotal = screen.getByText("subtotal: $0.00")
     const noItems = screen.getByText(/there are no items\./i)
+    const checkoutBtn = screen.queryByRole('link', {  name: /checkout/i})
     expect(subTotal).toBeInTheDocument()
     expect(noItems).toBeInTheDocument()
+    expect(checkoutBtn).not.toBeInTheDocument()
   })
 })

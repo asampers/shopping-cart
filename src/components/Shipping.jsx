@@ -51,6 +51,7 @@ export default function Shipping({status, onClick}) {
               </Col>
               <Col style={{marginTop: "auto"}}>
                 <Form.Check 
+                  data-testid="toggle"
                   label="Same as billing"
                   type="checkbox"
                   role="button"

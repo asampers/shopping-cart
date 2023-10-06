@@ -3,7 +3,7 @@ import Placeholder from 'react-bootstrap/Placeholder';
 
 export default function LoadingCard() {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card data-testid="placeholder" style={{ width: '18rem' }}>
         <Placeholder style={{width:"100px", height: "100px"}} animation="glow"></Placeholder>
         <Card.Body>
           <Placeholder as={Card.Title} style={{height: "72px"}} animation="glow">
