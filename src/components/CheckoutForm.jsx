@@ -1,6 +1,4 @@
-import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
-import { Link } from "react-router-dom";
 import Shipping from './Shipping';
 import Billing from './Billing';
 import Payment from './Payment';
